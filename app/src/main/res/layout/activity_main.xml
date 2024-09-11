@@ -8,10 +8,14 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/tv_v_am_title"
+        android:layout_width="411dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="16dp"
+        android:background="#85FFF4"
+        android:text="CIS183_Homework02_Program1"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
