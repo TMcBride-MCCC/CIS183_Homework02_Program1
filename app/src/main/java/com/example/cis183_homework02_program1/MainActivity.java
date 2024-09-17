@@ -1,6 +1,7 @@
 package com.example.cis183_homework02_program1;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     ListView lv_j_am_listOfColors;
 
     //ArrayList class here
+    ArrayList<RGB> listOfColors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -58,17 +62,34 @@ public class MainActivity extends AppCompatActivity
 
         //Event listener function for blue slider
 
-        //Set on click listener function for save button
+        //Function for save button
+        saveButtonClickEvent();
 
         //new ArrayList
+        listOfColors = new ArrayList<RGB>();
 
         //Function to fill list
 
     }
 
     //Function for button click here
+    private void saveButtonClickEvent()
+    {
+        btn_j_am_save.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //Function for adding the color to the list
+                addColorToList();
+            }
+        });
+    }
 
-
-
+    //Function for saving the color to the lv
+    private void addColorToList()
+    {
+        //
+    }
 
 }
