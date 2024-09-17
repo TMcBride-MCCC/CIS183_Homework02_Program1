@@ -5,19 +5,179 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tv_v_am_title"
-        android:layout_width="411dp"
+        android:id="@+id/tv_v_am_banner"
+        android:layout_width="0dp"
         android:layout_height="68dp"
-        android:layout_marginTop="16dp"
-        android:background="#85FFF4"
-        android:text="CIS183_Homework02_Program1"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="23dp"
+        android:background="#FF5722"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_v_am_redLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_v_am_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="47dp"
+        android:text="CIS-183_Homework01_Program1"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_v_am_redLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:text="Red: "
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/sb_v_am_redSlider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_v_am_greenLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Green:"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/sb_v_am_redSlider"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_am_redLabel" />
+
+    <TextView
+        android:id="@+id/tv_v_am_blueLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="Blue:"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/sb_v_am_greenSlider"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_am_greenLabel" />
+
+    <TextView
+        android:id="@+id/tv_v_am_greenNumVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="###"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/tv_v_am_greenLabel"
+        app:layout_constraintTop_toBottomOf="@+id/sb_v_am_redSlider" />
+
+    <TextView
+        android:id="@+id/tv_v_am_redNumVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="###"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/sb_v_am_redSlider"
+        app:layout_constraintStart_toEndOf="@+id/tv_v_am_redLabel" />
+
+    <TextView
+        android:id="@+id/tv_v_am_blueNumVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="###"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/tv_v_am_blueLabel"
+        app:layout_constraintTop_toBottomOf="@+id/sb_v_am_greenSlider" />
+
+    <SeekBar
+        android:id="@+id/sb_v_am_redSlider"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="19dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_v_am_greenLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_v_am_redLabel" />
+
+    <SeekBar
+        android:id="@+id/sb_v_am_greenSlider"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/sb_v_am_blueSlider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_v_am_greenLabel" />
+
+    <SeekBar
+        android:id="@+id/sb_v_am_blueSlider"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_v_am_hexLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_v_am_blueLabel" />
+
+    <TextView
+        android:id="@+id/tv_v_am_hexLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Hex Code:"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_v_am_hexVal"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_v_am_hexVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="46dp"
+        android:text="######"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/tv_v_am_hexLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_am_blueLabel" />
+
+    <Button
+        android:id="@+id/btn_v_am_save"
+        android:layout_width="120dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
+        android:background="#FF5722"
+        android:text="Save"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_am_hexVal" />
+
+    <ListView
+        android:id="@+id/lv_v_am_listOfColors"
+        android:layout_width="405dp"
+        android:layout_height="325dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="51dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_v_am_save"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
