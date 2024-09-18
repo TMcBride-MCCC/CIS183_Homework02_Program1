@@ -175,7 +175,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_v_am_hexVal" />
 
     <ListView
-        android:id="@+id/lv_v_am_listOfColors"
+        android:id="@+id/lv_v_am_colorList"
         android:layout_width="405dp"
         android:layout_height="325dp"
         android:layout_marginTop="35dp"

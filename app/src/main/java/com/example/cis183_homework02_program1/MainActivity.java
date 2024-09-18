@@ -1,6 +1,5 @@
 package com.example.cis183_homework02_program1;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,7 +28,9 @@ public class MainActivity extends AppCompatActivity
     SeekBar sb_j_am_blueSlider;
     TextView tv_j_am_hexVal;
 
-    Button btn_j_save;
+    Button btn_j_am_save;
+
+    ListView lv_j_am_colorList;
 
     //ArrayList class call
     ArrayList<ColorInfo> listOfColors;
@@ -56,13 +57,19 @@ public class MainActivity extends AppCompatActivity
         //Hex
         tv_j_am_hexVal = findViewById(R.id.tv_v_am_hexVal);
         //Save button
-        btn_j_save = findViewById(R.id.btn_v_am_save);
+        btn_j_am_save = findViewById(R.id.btn_v_am_save);
+        //List
+        lv_j_am_colorList = findViewById(R.id.lv_v_am_colorList);
 
         //Call event listeners for seek bars
         numValEventListener();
+        //Call button click event listener
+        registerButtonClickEvent();
 
         //Initialize ArrayList
         listOfColors = new ArrayList<ColorInfo>();
+        //Call function to fill the list view with the ArrayList
+        fillListView();
 
     }
 
@@ -214,6 +221,38 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+    }
+    private void registerButtonClickEvent()
+    {
+        btn_j_am_save.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addColorToList();
+            }
+        });
+    }
+
+    private void addColorToList()
+    {
+        //Create a place in memory to store info
+        ColorInfo colorToAdd = new ColorInfo();
+        //Fill that memory chunk with data
+        colorToAdd.setRedVal(
+        colorToAdd.setGreenVal(Integer.parseInt(tv_j_am_greenNumVal.toString()));
+        colorToAdd.setBlueVal(Integer.parseInt(tv_j_am_blueNumVal.toString()));
+        colorToAdd.setHexVal(tv_j_am_hexVal.getText().toString());
+
+        //TEST
+        Log.d("Color added ", "The color was added to the list");
+    }
+
+    private void fillListView()
+    {
+        adapter = new ColorListAdapter(this, listOfColors);
+        //Set the list view adapter
+        lv_j_am_colorList.setAdapter(adapter);
     }
 
 }
