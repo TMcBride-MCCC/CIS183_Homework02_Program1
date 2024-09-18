@@ -29,6 +29,13 @@ public class MainActivity extends AppCompatActivity
     SeekBar sb_j_am_blueSlider;
     TextView tv_j_am_hexVal;
 
+    Button btn_j_save;
+
+    //ArrayList class call
+    ArrayList<ColorInfo> listOfColors;
+    //Adapter
+    ColorListAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -37,20 +44,25 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         //Connect the Java variables to corresponding GUI variables [HERE]
-        //red
+        //Red
         tv_j_am_redNumVal = findViewById(R.id.tv_v_am_redNumVal);
         sb_j_am_redSlider = findViewById(R.id.sb_v_am_redSlider);
-        //green
+        //Green
         tv_j_am_greenNumVal = findViewById(R.id.tv_v_am_greenNumVal);
         sb_j_am_greenSlider = findViewById(R.id.sb_v_am_greenSlider);
-        //blue
+        //Blue
         tv_j_am_blueNumVal = findViewById(R.id.tv_v_am_blueNumVal);
         sb_j_am_blueSlider = findViewById(R.id.sb_v_am_blueSlider);
-        //hex
+        //Hex
         tv_j_am_hexVal = findViewById(R.id.tv_v_am_hexVal);
+        //Save button
+        btn_j_save = findViewById(R.id.btn_v_am_save);
 
         //Call event listeners for seek bars
         numValEventListener();
+
+        //Initialize ArrayList
+        listOfColors = new ArrayList<ColorInfo>();
 
     }
 

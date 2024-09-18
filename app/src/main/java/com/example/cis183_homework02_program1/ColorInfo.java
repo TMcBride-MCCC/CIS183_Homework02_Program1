@@ -1,6 +1,6 @@
 package com.example.cis183_homework02_program1;
 
-public class RGB
+public class ColorInfo
 {
     //redVal, greenVal, blueVal, hexVal, rgb
     private int redVal;
@@ -10,13 +10,13 @@ public class RGB
     private String rgb;
 
     //Constructor
-    public RGB()
+    public ColorInfo()
     {
 
     }
 
     //Overloaded constructor
-    public RGB(int r, int g, int b, String h, String c)
+    public ColorInfo(int r, int g, int b, String h, String c)
     {
         redVal = r;
         greenVal = g;
