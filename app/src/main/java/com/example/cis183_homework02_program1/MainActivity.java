@@ -67,14 +67,30 @@ public class MainActivity extends AppCompatActivity
                 tv_j_am_redNumVal.setText(String.valueOf(i));
                 //Convert the int value of red to hex
                 redVal = Integer.toHexString(i);
+                //Add 0 to redVal if length is 1
+                if (redVal.length() == 1)
+                {
+                    redVal = "0" + redVal;
+                }
                 //Convert the int value of green to hex
                 greenVal = Integer.toHexString(sb_j_am_greenSlider.getProgress());
+                //Add 0 to greenVal if length is 1
+                if (greenVal.length() == 1)
+                {
+                    greenVal = "0" + greenVal;
+                }
                 //Convert the int value of blue to hex
                 blueVal = Integer.toHexString(sb_j_am_blueSlider.getProgress());
+                //Add 0 to blueVal if length is 1
+                if (blueVal.length() == 1)
+                {
+                    blueVal = "0" + blueVal;
+                }
                 //Concatenate the current hex values of rgb into a single string value
-                hexVal = "#" + redVal + greenVal + blueVal;
+                hexVal = "#" + redVal + " | " + greenVal + " | " + blueVal + " | ";
                 //Set the text of the text view for hexVal & capitalize
                 tv_j_am_hexVal.setText(hexVal.toUpperCase());
+
             }
 
             @Override
@@ -88,6 +104,7 @@ public class MainActivity extends AppCompatActivity
             {
 
             }
+
         });
 
         //Listener for green
@@ -100,12 +117,27 @@ public class MainActivity extends AppCompatActivity
                 tv_j_am_greenNumVal.setText(String.valueOf(i));
                 //Convert the int value of red to hex
                 redVal = Integer.toHexString(sb_j_am_redSlider.getProgress());
+                //Add 0 to redVal if length is 1
+                if (redVal.length() == 1)
+                {
+                    redVal = "0" + redVal;
+                }
                 //Convert the int value of green to hex
                 greenVal = Integer.toHexString(i);
+                //Add 0 to greenVal if length is 1
+                if (greenVal.length() == 1)
+                {
+                    greenVal = "0" + greenVal;
+                }
                 //Convert the int value of blue to hex
                 blueVal = Integer.toHexString(sb_j_am_blueSlider.getProgress());
+                //Add 0 to blueVal if length is 1
+                if (blueVal.length() == 1)
+                {
+                    blueVal = "0" + blueVal;
+                }
                 //Concatenate the current hex values of rgb into a single string value
-                hexVal = "#" + redVal + greenVal + blueVal;
+                hexVal = "#" + redVal + " | " + greenVal + " | " + blueVal + " | ";
                 //Set the text of the text view for hexVal & capitalize
                 tv_j_am_hexVal.setText(hexVal.toUpperCase());
             }
@@ -132,12 +164,27 @@ public class MainActivity extends AppCompatActivity
                 tv_j_am_blueNumVal.setText(String.valueOf(i));
                 //Convert the int value of red to hex
                 redVal = Integer.toHexString(sb_j_am_redSlider.getProgress());
+                //Add 0 to redVal if length is 1
+                if (redVal.length() == 1)
+                {
+                    redVal = "0" + redVal;
+                }
                 //Convert the int value of green to hex
                 greenVal = Integer.toHexString(sb_j_am_greenSlider.getProgress());
+                //Add 0 to greenVal if length is 1
+                if (greenVal.length() == 1)
+                {
+                    greenVal = "0" + greenVal;
+                }
                 //Convert the int value of blue to hex
                 blueVal = Integer.toHexString(i);
+                //Add 0 to blueVal if length is 1
+                if (blueVal.length() == 1)
+                {
+                    blueVal = "0" + blueVal;
+                }
                 //Concatenate the current hex values of rgb into a single string value
-                hexVal = "#" + redVal + greenVal + blueVal;
+                hexVal = "#" + redVal + " | " + greenVal + " | " + blueVal + " | ";
                 //Set the text of the text view for hexVal & capitalize
                 tv_j_am_hexVal.setText(hexVal.toUpperCase());
             }
@@ -154,5 +201,7 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+
     }
+
 }
