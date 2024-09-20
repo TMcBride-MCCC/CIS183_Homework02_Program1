@@ -2,12 +2,11 @@ package com.example.cis183_homework02_program1;
 
 public class ColorInfo
 {
-    //redVal, greenVal, blueVal, hexVal, rgb
+    //redVal, greenValHex, blueVal, hexVal, rgb
     private int redVal;
     private int greenVal;
     private int blueVal;
     private String hexVal;
-    private String rgb;
 
     //Constructor
     public ColorInfo()
@@ -22,7 +21,6 @@ public class ColorInfo
         greenVal = g;
         blueVal = b;
         hexVal = h;
-        rgb = c;
     }
 
     //======================================================
@@ -49,10 +47,6 @@ public class ColorInfo
         return hexVal;
     }
 
-    public String getRgb()
-    {
-        return rgb;
-    }
 
     //======================================================
     //SETTERS
@@ -78,8 +72,4 @@ public class ColorInfo
         this.hexVal = hexVal;
     }
 
-    public void setRgb(String rgb)
-    {
-        this.rgb = rgb;
-    }
 }

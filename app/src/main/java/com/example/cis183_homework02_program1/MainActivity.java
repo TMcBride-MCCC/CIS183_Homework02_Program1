@@ -1,5 +1,6 @@
 package com.example.cis183_homework02_program1;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,11 +16,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
-    //Creating Java variables for GUI
-    String redVal;
-    String greenVal;
-    String blueVal;
+    //Creating Java variables for passing
+    String redValHex;
+    String greenValHex;
+    String blueValHex;
+    int redValInt;
+    int greenValInt;
+    int blueValInt;
     String hexVal;
+
+    //Creating Java variables for GUI
+    View main_j;
     TextView tv_j_am_redNumVal;
     TextView tv_j_am_greenNumVal;
     TextView tv_j_am_blueNumVal;
@@ -45,6 +52,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         //Connect the Java variables to corresponding GUI variables [HERE]
+        //Main
+        main_j = findViewById(R.id.main);
         //Red
         tv_j_am_redNumVal = findViewById(R.id.tv_v_am_redNumVal);
         sb_j_am_redSlider = findViewById(R.id.sb_v_am_redSlider);
@@ -84,31 +93,40 @@ public class MainActivity extends AppCompatActivity
             {
                 //Pull the value of red from the current slider listener
                 tv_j_am_redNumVal.setText(String.valueOf(i));
+                //Keep int val for passing to ArrayList
+                redValInt = sb_j_am_redSlider.getProgress();
                 //Convert the int value of red to hex
-                redVal = Integer.toHexString(i);
+                redValHex = Integer.toHexString(i);
                 //Add 0 to redVal if length is 1
-                if (redVal.length() == 1)
+                if (redValHex.length() == 1)
                 {
-                    redVal = "0" + redVal;
+                    redValHex = "0" + redValHex;
                 }
+                //Keep int val for passing to ArrayList
+                greenValInt = sb_j_am_greenSlider.getProgress();
                 //Convert the int value of green to hex
-                greenVal = Integer.toHexString(sb_j_am_greenSlider.getProgress());
-                //Add 0 to greenVal if length is 1
-                if (greenVal.length() == 1)
+                greenValHex = Integer.toHexString(sb_j_am_greenSlider.getProgress());
+                //Add 0 to greenValHex if length is 1
+                if (greenValHex.length() == 1)
                 {
-                    greenVal = "0" + greenVal;
+                    greenValHex = "0" + greenValHex;
                 }
+                //Keep int val for passing to ArrayList
+                blueValInt = sb_j_am_blueSlider.getProgress();
                 //Convert the int value of blue to hex
-                blueVal = Integer.toHexString(sb_j_am_blueSlider.getProgress());
+                blueValHex = Integer.toHexString(sb_j_am_blueSlider.getProgress());
                 //Add 0 to blueVal if length is 1
-                if (blueVal.length() == 1)
+                if (blueValHex.length() == 1)
                 {
-                    blueVal = "0" + blueVal;
+                    blueValHex = "0" + blueValHex;
                 }
                 //Concatenate the current hex values of rgb into a single string value
-                hexVal = "#" + redVal + " | " + greenVal + " | " + blueVal + " | ";
+                hexVal = redValHex + greenValHex + blueValHex;
                 //Set the text of the text view for hexVal & capitalize
                 tv_j_am_hexVal.setText(hexVal.toUpperCase());
+
+                //Change the background color
+                main_j.setBackgroundColor(Color.rgb(redValInt,greenValInt,blueValInt));
 
             }
 
@@ -132,33 +150,41 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b)
             {
+                //Keep int val for passing to ArrayList
+                redValInt = sb_j_am_redSlider.getProgress();
+                //Convert the int value of red to hex
+                redValHex = Integer.toHexString(sb_j_am_redSlider.getProgress());
+                //Add 0 to redVal if length is 1
+                if (redValHex.length() == 1)
+                {
+                    redValHex = "0" + redValHex;
+                }
+                //Keep int val for passing to ArrayList
+                greenValInt = sb_j_am_greenSlider.getProgress();
                 //Pull the value of green from the current slider listener
                 tv_j_am_greenNumVal.setText(String.valueOf(i));
-                //Convert the int value of red to hex
-                redVal = Integer.toHexString(sb_j_am_redSlider.getProgress());
-                //Add 0 to redVal if length is 1
-                if (redVal.length() == 1)
-                {
-                    redVal = "0" + redVal;
-                }
                 //Convert the int value of green to hex
-                greenVal = Integer.toHexString(i);
-                //Add 0 to greenVal if length is 1
-                if (greenVal.length() == 1)
+                greenValHex = Integer.toHexString(i);
+                //Add 0 to greenValHex if length is 1
+                if (greenValHex.length() == 1)
                 {
-                    greenVal = "0" + greenVal;
+                    greenValHex = "0" + greenValHex;
                 }
+                //Keep int val for passing to ArrayList
+                blueValInt = sb_j_am_blueSlider.getProgress();
                 //Convert the int value of blue to hex
-                blueVal = Integer.toHexString(sb_j_am_blueSlider.getProgress());
+                blueValHex = Integer.toHexString(sb_j_am_blueSlider.getProgress());
                 //Add 0 to blueVal if length is 1
-                if (blueVal.length() == 1)
+                if (blueValHex.length() == 1)
                 {
-                    blueVal = "0" + blueVal;
+                    blueValHex = "0" + blueValHex;
                 }
                 //Concatenate the current hex values of rgb into a single string value
-                hexVal = "#" + redVal + " | " + greenVal + " | " + blueVal + " | ";
+                hexVal = redValHex + greenValHex + blueValHex;
                 //Set the text of the text view for hexVal & capitalize
                 tv_j_am_hexVal.setText(hexVal.toUpperCase());
+                //Change the background color
+                main_j.setBackgroundColor(Color.rgb(redValInt,greenValInt,blueValInt));
             }
 
             @Override
@@ -180,32 +206,41 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b)
             {
-                tv_j_am_blueNumVal.setText(String.valueOf(i));
+                //Keep int val for passing to ArrayList
+                redValInt = sb_j_am_redSlider.getProgress();
                 //Convert the int value of red to hex
-                redVal = Integer.toHexString(sb_j_am_redSlider.getProgress());
+                redValHex = Integer.toHexString(sb_j_am_redSlider.getProgress());
                 //Add 0 to redVal if length is 1
-                if (redVal.length() == 1)
+                if (redValHex.length() == 1)
                 {
-                    redVal = "0" + redVal;
+                    redValHex = "0" + redValHex;
                 }
+                //Keep int val for passing to ArrayList
+                greenValInt = sb_j_am_greenSlider.getProgress();
                 //Convert the int value of green to hex
-                greenVal = Integer.toHexString(sb_j_am_greenSlider.getProgress());
-                //Add 0 to greenVal if length is 1
-                if (greenVal.length() == 1)
+                greenValHex = Integer.toHexString(sb_j_am_greenSlider.getProgress());
+                //Add 0 to greenValHex if length is 1
+                if (greenValHex.length() == 1)
                 {
-                    greenVal = "0" + greenVal;
+                    greenValHex = "0" + greenValHex;
                 }
+                //Pull the value of blue from the current slider listener
+                tv_j_am_blueNumVal.setText(String.valueOf(i));
+                //Keep int val for passing to ArrayList
+                blueValInt = sb_j_am_blueSlider.getProgress();
                 //Convert the int value of blue to hex
-                blueVal = Integer.toHexString(i);
+                blueValHex = Integer.toHexString(i);
                 //Add 0 to blueVal if length is 1
-                if (blueVal.length() == 1)
+                if (blueValHex.length() == 1)
                 {
-                    blueVal = "0" + blueVal;
+                    blueValHex = "0" + blueValHex;
                 }
                 //Concatenate the current hex values of rgb into a single string value
-                hexVal = "#" + redVal + " | " + greenVal + " | " + blueVal + " | ";
+                hexVal = redValHex + greenValHex + blueValHex;
                 //Set the text of the text view for hexVal & capitalize
                 tv_j_am_hexVal.setText(hexVal.toUpperCase());
+                //Change the background color
+                main_j.setBackgroundColor(Color.rgb(redValInt,greenValInt,blueValInt));
             }
 
             @Override
@@ -238,14 +273,40 @@ public class MainActivity extends AppCompatActivity
     {
         //Create a place in memory to store info
         ColorInfo colorToAdd = new ColorInfo();
+
         //Fill that memory chunk with data
-        colorToAdd.setRedVal(
-        colorToAdd.setGreenVal(Integer.parseInt(tv_j_am_greenNumVal.toString()));
-        colorToAdd.setBlueVal(Integer.parseInt(tv_j_am_blueNumVal.toString()));
-        colorToAdd.setHexVal(tv_j_am_hexVal.getText().toString());
+        //Add Red color int value to array
+        colorToAdd.setRedVal(redValInt);
+        //Add Green color int value to array
+        colorToAdd.setGreenVal(greenValInt);
+        //Add Blue color int value to array
+        colorToAdd.setBlueVal(blueValInt);
+        //Add Hex value to array
+        colorToAdd.setHexVal(hexVal.toUpperCase());
+
+        //Add the memory chunk to the list
+        listOfColors.add(colorToAdd);
+
+        //Tell the program that the data set has been added to
+        adapter.notifyDataSetChanged();
 
         //TEST
         Log.d("Color added ", "The color was added to the list");
+        //red output
+        Log.d("redValHex was added to the list ", "redValHex is: " + redValHex.toUpperCase());
+        Log.d("redValInt was added to the list ", "redValINT is: " + redValInt);
+        //green output
+        Log.d("greenValHex was added to the list ", "greenValHex is: " + greenValHex.toUpperCase());
+        Log.d("greenValInt was added to the list ", "greenValInt is: " + greenValInt);
+        //blue output
+        Log.d("blueValHex was added to the list ", "blueValHex is: " + blueValHex.toUpperCase());
+        Log.d("blueValInt was added to the list ", "blueValInt is: " + blueValInt);
+        //Array looks like this:
+        Log.d("Did the Red get added? ", "Red: " + colorToAdd.getRedVal());
+        Log.d("Did the Green get added? ", "Green: " + colorToAdd.getGreenVal());
+        Log.d("Did the Blue get added? ", "Blue: " + colorToAdd.getBlueVal());
+        Log.d("Did the Hex get added? ", "Hex: " + colorToAdd.getHexVal());
+
     }
 
     private void fillListView()
