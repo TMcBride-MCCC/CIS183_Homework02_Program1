@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity
 
     //Creating Java variables for GUI
     View main_j;
+    View cc_j;
     TextView tv_j_am_redNumVal;
     TextView tv_j_am_greenNumVal;
     TextView tv_j_am_blueNumVal;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity
         //Connect the Java variables to corresponding GUI variables [HERE]
         //Main
         main_j = findViewById(R.id.main);
+        //Custom_Cell
+        cc_j = findViewById(R.id.cc);
         //Red
         tv_j_am_redNumVal = findViewById(R.id.tv_v_am_redNumVal);
         sb_j_am_redSlider = findViewById(R.id.sb_v_am_redSlider);
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity
         listOfColors = new ArrayList<ColorInfo>();
         //Call function to fill the list view with the ArrayList
         fillListView();
+        //registerCcListener();
 
     }
 
@@ -257,6 +261,7 @@ public class MainActivity extends AppCompatActivity
         });
 
     }
+
     private void registerButtonClickEvent()
     {
         btn_j_am_save.setOnClickListener(new View.OnClickListener()
@@ -268,6 +273,18 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+
+/*    private void registerCcListener()
+    {
+        cc_j.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                tv_j_am_redNumVal.setText(String.valueOf(cc_j.findViewById(R.id.tv_v_cc_redNumVal)));
+            }
+        });
+    }*/
 
     private void addColorToList()
     {

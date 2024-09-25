@@ -1,6 +1,7 @@
 package com.example.cis183_homework02_program1;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,15 +51,17 @@ public class ColorListAdapter extends BaseAdapter
         TextView greenVal = view.findViewById(R.id.tv_v_cc_greenNumVal);
         TextView blueVal = view.findViewById(R.id.tv_v_cc_blueNumVal);
         TextView hexVal = view.findViewById(R.id.tv_v_cc_hexVal);
+        View background = view.findViewById(R.id.cc);
 
         //get the color info from the color list
         ColorInfo col = listOfColors.get(i);
 
         //set the GUI for the custom_cell
-        redVal.setText(col.getRedVal());
-        greenVal.setText(col.getGreenVal());
-        blueVal.setText(col.getBlueVal());
+        redVal.setText(String.valueOf(col.getRedVal()));
+        greenVal.setText(String.valueOf(col.getGreenVal()));
+        blueVal.setText(String.valueOf(col.getBlueVal()));
         hexVal.setText(col.getHexVal());
+        background.setBackgroundColor(Color.rgb(col.getRedVal(),col.getGreenVal(), col.getBlueVal()));
 
         return view;
     }
