@@ -2,11 +2,12 @@ package com.example.cis183_homework02_program1;
 
 public class ColorInfo
 {
-    //redVal, greenValHex, blueVal, hexVal, rgb
+    //redVal, greenValHex, blueVal, hexVal,
     private int redVal;
     private int greenVal;
     private int blueVal;
     private String hexVal;
+    private double brightness;
 
     //Constructor
     public ColorInfo()
@@ -15,12 +16,13 @@ public class ColorInfo
     }
 
     //Overloaded constructor
-    public ColorInfo(int r, int g, int b, String h, String c)
+    public ColorInfo(int r, int g, int b, String h, double br)
     {
         redVal = r;
         greenVal = g;
         blueVal = b;
         hexVal = h;
+        brightness = br;
     }
 
     //======================================================
@@ -47,8 +49,12 @@ public class ColorInfo
         return hexVal;
     }
 
+    public double getBrightness()
+    {
+        return brightness;
+    }
 
-    //======================================================
+//======================================================
     //SETTERS
     //======================================================
 
@@ -72,4 +78,8 @@ public class ColorInfo
         this.hexVal = hexVal;
     }
 
+    public void setBrightness(double brightness)
+    {
+        this.brightness = brightness;
+    }
 }

@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity
     SeekBar sb_j_am_greenSlider;
     SeekBar sb_j_am_blueSlider;
     TextView tv_j_am_hexVal;
+    //Labels
+    TextView tv_j_am_redLabel;
+    TextView tv_j_am_greenLabel;
+    TextView tv_j_am_blueLabel;
+    TextView tv_j_am_hexLabel;
 
     Button btn_j_am_save;
 
@@ -59,15 +64,19 @@ public class MainActivity extends AppCompatActivity
         //Custom_Cell
         cc_j = findViewById(R.id.cc);
         //Red
+        tv_j_am_redLabel = findViewById(R.id.tv_v_am_redLabel);
         tv_j_am_redNumVal = findViewById(R.id.tv_v_am_redNumVal);
         sb_j_am_redSlider = findViewById(R.id.sb_v_am_redSlider);
         //Green
+        tv_j_am_greenLabel = findViewById(R.id.tv_v_am_greenLabel);
         tv_j_am_greenNumVal = findViewById(R.id.tv_v_am_greenNumVal);
         sb_j_am_greenSlider = findViewById(R.id.sb_v_am_greenSlider);
         //Blue
+        tv_j_am_blueLabel = findViewById(R.id.tv_v_am_blueLabel);
         tv_j_am_blueNumVal = findViewById(R.id.tv_v_am_blueNumVal);
         sb_j_am_blueSlider = findViewById(R.id.sb_v_am_blueSlider);
         //Hex
+        tv_j_am_hexLabel = findViewById(R.id.tv_v_am_hexLabel);
         tv_j_am_hexVal = findViewById(R.id.tv_v_am_hexVal);
         //Save button
         btn_j_am_save = findViewById(R.id.btn_v_am_save);
@@ -133,6 +142,9 @@ public class MainActivity extends AppCompatActivity
                 //Change the background color
                 main_j.setBackgroundColor(Color.rgb(redValInt,greenValInt,blueValInt));
 
+                //Change text color
+                changeTextColor();
+
             }
 
             @Override
@@ -190,6 +202,9 @@ public class MainActivity extends AppCompatActivity
                 tv_j_am_hexVal.setText(hexVal.toUpperCase());
                 //Change the background color
                 main_j.setBackgroundColor(Color.rgb(redValInt,greenValInt,blueValInt));
+
+                //Change text color
+                changeTextColor();
             }
 
             @Override
@@ -246,6 +261,9 @@ public class MainActivity extends AppCompatActivity
                 tv_j_am_hexVal.setText(hexVal.toUpperCase());
                 //Change the background color
                 main_j.setBackgroundColor(Color.rgb(redValInt,greenValInt,blueValInt));
+
+                //Change text color
+                changeTextColor();
             }
 
             @Override
@@ -271,8 +289,21 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 addColorToList();
+                resetGUI();
             }
         });
+    }
+
+    private void resetGUI()
+    {
+        //Reset red
+        sb_j_am_redSlider.setProgress(255);
+
+        //Reset green
+        sb_j_am_greenSlider.setProgress(255);
+
+        //Reset blue
+        sb_j_am_blueSlider.setProgress(255);
     }
 
     private void registerCcListener()
@@ -319,6 +350,8 @@ public class MainActivity extends AppCompatActivity
         colorToAdd.setBlueVal(blueValInt);
         //Add Hex value to array
         colorToAdd.setHexVal(hexVal.toUpperCase());
+        //Add Brightness value to array
+        colorToAdd.setBrightness(changeTextColor());
 
         //Add the memory chunk to the list
         listOfColors.add(colorToAdd);
@@ -326,7 +359,7 @@ public class MainActivity extends AppCompatActivity
         //Tell the program that the data set has been added to
         adapter.notifyDataSetChanged();
 
-        //TEST
+/*        //TEST
         Log.d("Color added ", "The color was added to the list");
         //red output
         Log.d("redValHex was added to the list ", "redValHex is: " + redValHex.toUpperCase());
@@ -341,7 +374,7 @@ public class MainActivity extends AppCompatActivity
         Log.d("Did the Red get added? ", "Red: " + colorToAdd.getRedVal());
         Log.d("Did the Green get added? ", "Green: " + colorToAdd.getGreenVal());
         Log.d("Did the Blue get added? ", "Blue: " + colorToAdd.getBlueVal());
-        Log.d("Did the Hex get added? ", "Hex: " + colorToAdd.getHexVal());
+        Log.d("Did the Hex get added? ", "Hex: " + colorToAdd.getHexVal());*/
 
     }
 
@@ -350,6 +383,49 @@ public class MainActivity extends AppCompatActivity
         adapter = new ColorListAdapter(this, listOfColors);
         //Set the list view adapter
         lv_j_am_colorList.setAdapter(adapter);
+    }
+
+    private double changeTextColor()
+    {
+        double brightness = (0.299 * redValInt + 0.587 * greenValInt + 0.114 * blueValInt)/255;
+
+        if (brightness < .5)
+        {
+            //Set red text to white
+            tv_j_am_redLabel.setTextColor(Color.rgb(255,255,255));
+            tv_j_am_redNumVal.setTextColor(Color.rgb(255,255,255));
+
+            //Set green text to white
+            tv_j_am_greenLabel.setTextColor(Color.rgb(255,255,255));
+            tv_j_am_greenNumVal.setTextColor(Color.rgb(255,255,255));
+
+            //Set blue text to white
+            tv_j_am_blueLabel.setTextColor(Color.rgb(255,255,255));
+            tv_j_am_blueNumVal.setTextColor(Color.rgb(255,255,255));
+
+            //Set hex text to white
+            tv_j_am_hexLabel.setTextColor(Color.rgb(255,255,255));
+            tv_j_am_hexVal.setTextColor(Color.rgb(255,255,255));
+        }
+        else
+        {
+            //Set red text to black
+            tv_j_am_redLabel.setTextColor(Color.rgb(000,000,000));
+            tv_j_am_redNumVal.setTextColor(Color.rgb(000,000,000));
+
+            //Set green text to black
+            tv_j_am_greenLabel.setTextColor(Color.rgb(000,000,000));
+            tv_j_am_greenNumVal.setTextColor(Color.rgb(000,000,000));
+
+            //Set blue text to black
+            tv_j_am_blueLabel.setTextColor(Color.rgb(000,000,000));
+            tv_j_am_blueNumVal.setTextColor(Color.rgb(000,000,000));
+
+            //Set hex text to black
+            tv_j_am_hexLabel.setTextColor(Color.rgb(000,000,000));
+            tv_j_am_hexVal.setTextColor(Color.rgb(000,000,000));
+        }
+        return brightness;
     }
 
 }

@@ -48,9 +48,13 @@ public class ColorListAdapter extends BaseAdapter
 
         //find the Gui elements in my custom_cell
         TextView redVal = view.findViewById(R.id.tv_v_cc_redNumVal);
+        TextView redLabel = view.findViewById(R.id.tv_v_cc_redLabel);
         TextView greenVal = view.findViewById(R.id.tv_v_cc_greenNumVal);
+        TextView greenLabel = view.findViewById(R.id.tv_v_cc_greenLabel);
         TextView blueVal = view.findViewById(R.id.tv_v_cc_blueNumVal);
+        TextView blueLabel = view.findViewById(R.id.tv_v_cc_blueLabel);
         TextView hexVal = view.findViewById(R.id.tv_v_cc_hexVal);
+        TextView hexLabel = view.findViewById(R.id.tv_v_cc_hexLabel);
         View background = view.findViewById(R.id.cc);
 
         //get the color info from the color list
@@ -63,8 +67,42 @@ public class ColorListAdapter extends BaseAdapter
         hexVal.setText(col.getHexVal());
         background.setBackgroundColor(Color.rgb(col.getRedVal(),col.getGreenVal(), col.getBlueVal()));
 
-        //set clickable to true
+        if (col.getBrightness() < .5)
+        {
+            //Set red text to white
+            redLabel.setTextColor(Color.rgb(255,255,255));
+            redVal.setTextColor(Color.rgb(255,255,255));
 
+            //Set green text to white
+            greenLabel.setTextColor(Color.rgb(255,255,255));
+            greenVal.setTextColor(Color.rgb(255,255,255));
+
+            //Set blue text to white
+            blueLabel.setTextColor(Color.rgb(255,255,255));
+            blueVal.setTextColor(Color.rgb(255,255,255));
+
+            //Set hex text to white
+            hexLabel.setTextColor(Color.rgb(255,255,255));
+            hexVal.setTextColor(Color.rgb(255,255,255));
+        }
+        else
+        {
+            //Set red text to black
+            redLabel.setTextColor(Color.rgb(000,000,000));
+            redVal.setTextColor(Color.rgb(000,000,000));
+
+            //Set green text to black
+            greenLabel.setTextColor(Color.rgb(000,000,000));
+            greenVal.setTextColor(Color.rgb(000,000,000));
+
+            //Set blue text to black
+            blueLabel.setTextColor(Color.rgb(000,000,000));
+            blueVal.setTextColor(Color.rgb(000,000,000));
+
+            //Set hex text to black
+            hexLabel.setTextColor(Color.rgb(000,000,000));
+            hexVal.setTextColor(Color.rgb(000,000,000));
+        }
 
         return view;
     }
