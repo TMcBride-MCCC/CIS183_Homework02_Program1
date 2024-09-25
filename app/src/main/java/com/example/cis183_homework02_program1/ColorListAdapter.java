@@ -63,6 +63,9 @@ public class ColorListAdapter extends BaseAdapter
         hexVal.setText(col.getHexVal());
         background.setBackgroundColor(Color.rgb(col.getRedVal(),col.getGreenVal(), col.getBlueVal()));
 
+        //set clickable to true
+
+
         return view;
     }
 }

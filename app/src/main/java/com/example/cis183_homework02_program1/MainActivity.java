@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity
         listOfColors = new ArrayList<ColorInfo>();
         //Call function to fill the list view with the ArrayList
         fillListView();
-        //registerCcListener();
+        registerCcListener();
 
     }
 
@@ -274,17 +275,35 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-/*    private void registerCcListener()
+    private void registerCcListener()
     {
-        cc_j.setOnClickListener(new View.OnClickListener()
+        lv_j_am_colorList.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
-            public void onClick(View view)
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-                tv_j_am_redNumVal.setText(String.valueOf(cc_j.findViewById(R.id.tv_v_cc_redNumVal)));
+                ColorInfo thisColor = listOfColors.get(i);
+
+                //Set the red value of tv and sb
+                tv_j_am_redNumVal.setText(String.valueOf(thisColor.getRedVal()));
+                sb_j_am_redSlider.setProgress(thisColor.getRedVal());
+
+                //Set the green value of tv and sb
+                tv_j_am_greenNumVal.setText(String.valueOf(thisColor.getGreenVal()));
+                sb_j_am_greenSlider.setProgress(thisColor.getGreenVal());
+
+                //Set the blue value of tv and sb
+                tv_j_am_blueNumVal.setText(String.valueOf(thisColor.getBlueVal()));
+                sb_j_am_blueSlider.setProgress(thisColor.getBlueVal());
+
+                //Set the hex value
+                tv_j_am_hexVal.setText(thisColor.getHexVal());
+
+                //Set the background color
+                main_j.setBackgroundColor(Color.rgb(thisColor.getRedVal(), thisColor.getGreenVal(), thisColor.getBlueVal()));
             }
         });
-    }*/
+    }
 
     private void addColorToList()
     {
